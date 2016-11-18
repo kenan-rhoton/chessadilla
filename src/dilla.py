@@ -30,8 +30,11 @@ def move_list():
 def score_pos():
     print(info_handler.info["score"][1])
 
+def help_me():
+    print(actions)
 
-actions = { ".p": print_pos, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos }
+
+actions = { ".p": print_pos, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos, ".h": help_me }
 
 while command != ".q":
     try:
