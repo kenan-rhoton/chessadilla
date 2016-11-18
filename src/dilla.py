@@ -1,7 +1,8 @@
 import chess
 import chess.uci
+import shutil
 
-engine = chess.uci.popen_engine("/usr/local/bin/stockfish")
+engine = chess.uci.popen_engine(shutil.which("stockfish"))
 engine.uci()
 board = chess.Board()
 
