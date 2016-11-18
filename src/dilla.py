@@ -5,6 +5,10 @@ import shutil
 engine = chess.uci.popen_engine(shutil.which("stockfish"))
 engine.uci()
 board = chess.Board()
+info_handler = chess.uci.InfoHandler()
+engine.info_handlers.append(info_handler)
+engine.position(board)
+engine.go(depth=10)
 
 command = ""
 
@@ -23,7 +27,11 @@ def move_list():
     board2 = chess.Board()
     print(board2.variation_san(board.move_stack))
 
-actions = { ".p": print_pos, ".e": eval_pos, ".u": go_back, ".m": move_list }
+def score_pos():
+    print(info_handler.info["score"][1])
+
+
+actions = { ".p": print_pos, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos }
 
 while command != ".q":
     try:
