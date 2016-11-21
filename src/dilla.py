@@ -35,7 +35,11 @@ def play_move(args):
     res = engine.go(depth = args)
     board.push(res)
 
-actions = { ".p": play_move, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos }
+def help_me():
+    print(actions)
+
+
+actions = { ".p": play_move, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos, ".h": help_me }
 
 while command != ".q":
     try:
