@@ -39,6 +39,7 @@ actions = { ".p": play_move, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s
 
 while command != ".q":
     try:
+        print_pos()
         command = input("> ")
     except EOFError:
         break
