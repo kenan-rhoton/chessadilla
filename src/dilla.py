@@ -30,8 +30,12 @@ def move_list():
 def score_pos():
     print(info_handler.info["score"][1])
 
+def play_move(args):
+    engine.position(board)
+    res = engine.go(depth = args)
+    board.push(res)
 
-actions = { ".p": print_pos, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos }
+actions = { ".p": play_move, ".e": eval_pos, ".u": go_back, ".m": move_list, ".s": score_pos }
 
 while command != ".q":
     try:
