@@ -49,10 +49,13 @@ while command != ".q":
         break
     c = command.split(" ",1)
     if c[0] in actions:
-        if len(c) > 1:
-            actions[c[0]](c[1])
-        else:
-            actions[c[0]]()
+        try:
+            if len(c) > 1:
+                actions[c[0]](c[1])
+            else:
+                actions[c[0]]()
+        except TypeError:
+            print("Wrong number of arguments!\n")
     else:
         try:
             board.parse_san(c[0])
